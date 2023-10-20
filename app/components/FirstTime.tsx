@@ -1,35 +1,35 @@
-'use client'
-import React from "react";
-
+"use client";
+import React, { MouseEventHandler } from "react";
+//TODO - refactor to separate client components - button/input
 const FirstTime = () => {
-  const [show, setShow] = React.useState(true)
-  const [formData, setFormData] = React.useState({name: ""})
-  function handleSubmit(e: any){
-    e.preventDefault()
-    setShow(false) 
-    localStorage.setItem("name", formData.name) 
-    localStorage.setItem("firstTime", "false")   
-  }  
-  function handleChange(event: any) {
-    setFormData(prevData =>{
-      return{
-        ...prevData,
-        [event.target.name]: [event.target.value]
-      }
-    })
+  const [show, setShow] = React.useState(true);
+  const [formData, setFormData] = React.useState({ name: "" });
+  function handleSubmit(event: React.SyntheticEvent) {
+    event.preventDefault();
+    setShow(false);
+    localStorage.setItem("name", formData.name);
+    localStorage.setItem("firstTime", "false");
   }
-  React.useEffect(()=>{
+  function handleChange(event: React.ChangeEvent<HTMLInputElement>) {
+    setFormData((prevData) => {
+      return {
+        ...prevData,
+        [event.target.name]: [event.target.value],
+      };
+    });
+  }
+  React.useEffect(() => {
     if (localStorage.getItem("name") != null) {
-      const localName = localStorage.getItem("name") || "";
-      setFormData(prevData=> ({...prevData, name: localName}));
+      const localName = localStorage.getItem("name") as string;
+      setFormData((prevData) => ({ ...prevData, name: localName }));
     }
     if (localStorage.getItem("firstTime") != null) {
-      const localShow = localStorage.getItem("firstTime") || "";
+      const localShow = localStorage.getItem("firstTime") as string;
       if (localShow === "false") {
         setShow(false);
       }
     }
-  },[])
+  }, []);
 
   return (
     <div>
@@ -50,7 +50,7 @@ const FirstTime = () => {
             <br />
             <button
               onClick={handleSubmit}
-              className="border-2 text-2xl mt-6 rounded-lg hover:border-slate-700 hover:bg-slate-500 px-4 py-2 dark:bg-zinc-200 dark:text-slate-500 dark:hover:text-black dark:hover:bg-sky-300">
+              className="border-2 text-2xl mt-6 rounded-lg hover:border-slate-700 hover:bg-slate-500 px-4 py-2 dark:bg-zinc-200  dark:text-black dark:hover:bg-sky-300">
               Submit
             </button>
           </form>
