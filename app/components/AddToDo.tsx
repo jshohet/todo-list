@@ -12,7 +12,12 @@ const AddToDo = () => {
     event.preventDefault();
     setItemData([
       ...itemData,
-      { id: nanoid(), description: inputData, isChecked: false },
+      {
+        id: nanoid(),
+        description: inputData,
+        isChecked: false,
+        scheduledToDelete: false,
+      },
     ]);
   }
   function toggleItem(id: string) {
@@ -21,31 +26,51 @@ const AddToDo = () => {
         return item.id === id ? { ...item, isChecked: !item.isChecked } : item;
       });
     });
+    if (itemData.length < 1) {
+      localStorage.removeItem("listItems");
+    }
+  }
+
+  function deleteItem(id: string) {
+    setItemData((prevItemData) => {
+      return prevItemData.filter((item) => {
+        return item.id !== id;
+      });
+    });
+    localStorage.setItem("listItems", [].toString());
   }
 
   const createList = itemData.map((item) => {
-    return (
-      <ToDoItem
-        key={item.id}
-        description={item.description}
-        isChecked={false}
-        id={item.id}
-        handleItem={toggleItem}
-      />
-    );
+    localStorage.setItem("listItems", JSON.stringify(itemData));
+
+    if (itemData) {
+      return (
+        <ToDoItem
+          key={item.id}
+          description={item.description}
+          isChecked={item.isChecked}
+          id={item.id}
+          handleItem={toggleItem}
+          scheduledToDelete={item.scheduledToDelete}
+          deleteItem={deleteItem}
+        />
+      );
+    }
   });
-  console.log(itemData);
-  //array of objects with description and isChecked
-  //TODO - use effect to get from localstorage
+  React.useEffect(() => {
+    if (localStorage.getItem("listItems")) {
+      const localItems = localStorage.getItem("listItems") as string;
+      setItemData(JSON.parse(localItems) || []);
+    }
+  }, []);
   return (
     <div className="flex items-center flex-col">
-      <input
-        type="text"
-        className="border-solid text-2xl border-2 p-2 rounded-lg focus:border-sky-300 dark:border-slate-400"
+      <textarea
+        className="resize-none border-solid text-2xl border-2 p-2 rounded-lg w-80 placeholder:text-center focus:border-sky-300 dark:border-slate-400"
         placeholder="New to-do item"
         id="name"
         name="todo"
-        onChange={(e: React.ChangeEvent<HTMLInputElement>) =>
+        onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
           setInputData(e.target.value)
         }
       />

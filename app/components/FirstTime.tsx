@@ -23,7 +23,7 @@ const FirstTime = () => {
       const localName = localStorage.getItem("name") as string;
       setFormData((prevData) => ({ ...prevData, name: localName }));
     }
-    if (localStorage.getItem("firstTime") != null) {
+    if (localStorage.getItem("firstTime") != null && localStorage.getItem("name") != null) {
       const localShow = localStorage.getItem("firstTime") as string;
       if (localShow === "false") {
         setShow(false);
@@ -50,7 +50,7 @@ const FirstTime = () => {
             <br />
             <button
               onClick={handleSubmit}
-              className="border-2 text-2xl mt-6 rounded-lg hover:border-slate-700 hover:bg-slate-500 px-4 py-2 dark:bg-zinc-200  dark:text-black dark:hover:bg-sky-300">
+              className="border-2 text-2xl my-6 rounded-lg border-slate-500 hover:border-slate-700 hover:bg-cyan-500 px-4 py-2 dark:bg-zinc-200 dark:text-black dark:hover:bg-sky-300">
               Submit
             </button>
           </form>
