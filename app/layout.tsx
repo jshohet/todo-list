@@ -20,7 +20,7 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en" className="dark" style={{ colorScheme: "dark" }}>
+    <html lang="en" className="dark bg-gradient-to-br from-cyan-500 to-clue-500" style={{ colorScheme: "dark" }}>
       
       <body>
         <Providers>{children}</Providers>

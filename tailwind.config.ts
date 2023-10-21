@@ -10,7 +10,7 @@ const config: Config = {
   darkMode: "class",
   theme: {
     screens: {
-      xs: "475px",
+      xs: "320px",
       ...defaultTheme.screens,
     },
     extend: {

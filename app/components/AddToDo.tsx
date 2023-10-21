@@ -66,7 +66,7 @@ const AddToDo = () => {
   return (
     <div className="flex items-center flex-col">
       <textarea
-        className="resize-none border-solid text-2xl border-2 p-2 rounded-lg w-80 placeholder:text-center focus:border-sky-300 dark:border-slate-400"
+        className="bg-slate-200 dark:bg-slate-800 resize-none border-solid sm:text-2xl xs:text-lg border-2 p-2 rounded-lg w-80 placeholder:text-center focus:border-sky-300 dark:border-slate-400"
         placeholder="New to-do item"
         id="name"
         name="todo"
@@ -76,7 +76,7 @@ const AddToDo = () => {
       />
       <button
         onClick={handleAdd}
-        className="border-2 text-2xl my-6 rounded-lg border-slate-500 hover:border-slate-700 hover:bg-cyan-500 px-4 py-2 dark:bg-zinc-200 dark:text-black dark:hover:bg-sky-300">
+        className="border-2 text-2xl my-6 rounded-lg border-slate-500 hover:border-slate-700 hover:bg-green-700 px-4 py-2 dark:bg-zinc-200 dark:text-black dark:hover:bg-emerald-400">
         Add Item
       </button>
       {createList}

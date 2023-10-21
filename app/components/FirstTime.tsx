@@ -38,7 +38,7 @@ const FirstTime = () => {
     <div>
       {show ? (
         <div className="text-center mt-10">
-          <h1 className="text-7xl font-semibold mb-10 text-slate-700 dark:text-zinc-200">
+          <h1 className="lg:text-7xl md:text-5xl xs:text-2xl sm:text-2xl font-semibold mb-10 text-slate-700 dark:text-zinc-200 md:mx-1">
             Please enter your name:
           </h1>
           <form>
@@ -60,7 +60,7 @@ const FirstTime = () => {
         </div>
       ) : (
         <div className="text-center mt-10">
-          <h1 className="text-7xl font-semibold mb-10 text-slate-700 dark:text-zinc-200">
+          <h1 className="lg:text-7xl md:text-5xl xs:text-2xl sm:text-2xl font-semibold mb-10 text-slate-700 dark:text-zinc-200 md:mx-1">
             Hello, {formData.name}! This is your to-do list:
           </h1>
         </div>
