@@ -16,9 +16,12 @@ export default function RootLayout({
     <html
       lang="en"
       className="bg-gradient-to-br from-cyan-500 to-clue-500 dark"
-      style={{ colorScheme: "dark" }}>
+      style={{ colorScheme: "dark" }}
+      >
       <body>
-        <Providers>{children}</Providers>
+        <Providers>
+          {children}
+          </Providers>
       </body>
     </html>
   );
