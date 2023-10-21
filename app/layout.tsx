@@ -7,10 +7,8 @@ export const metadata: Metadata = {
   description: "A simple to-do list",
   viewport: {
     width: "device-width",
-    height: "device-height",
     initialScale: 1,
     maximumScale: 1,
-    minimumScale: 1,
   },
 };
 
