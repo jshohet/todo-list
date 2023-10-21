@@ -23,7 +23,10 @@ const FirstTime = () => {
       const localName = localStorage.getItem("name") as string;
       setFormData((prevData) => ({ ...prevData, name: localName }));
     }
-    if (localStorage.getItem("firstTime") != null && localStorage.getItem("name") != null) {
+    if (
+      localStorage.getItem("firstTime") != null &&
+      localStorage.getItem("name") != null
+    ) {
       const localShow = localStorage.getItem("firstTime") as string;
       if (localShow === "false") {
         setShow(false);
