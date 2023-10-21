@@ -1,5 +1,5 @@
 "use strict";
-exports.__esModule = true;
+// exports.__esModule = true;
 exports.metadata = void 0;
 require("../globals.css");
 exports.metadata = {
