@@ -44,7 +44,7 @@ const FirstTime = () => {
           <form>
             <input
               type="text"
-              className="border-solid text-2xl border-2 p-2 rounded-lg focus:border-sky-300 dark:border-slate-400"
+              className="border-solid md:text-2xl xs:text-lg sm:text-xl border-2 p-2 rounded-lg focus:border-sky-300 dark:border-slate-400"
               placeholder="Name goes here"
               id="name"
               name="name"
