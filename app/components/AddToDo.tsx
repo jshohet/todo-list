@@ -19,6 +19,7 @@ const AddToDo = () => {
         scheduledToDelete: false,
       },
     ]);
+    setInputData("");
   }
   function toggleItem(id: string) {
     setItemData((prevItemData) => {
@@ -26,9 +27,7 @@ const AddToDo = () => {
         return item.id === id ? { ...item, isChecked: !item.isChecked } : item;
       });
     });
-    if (itemData.length < 1) {
-      localStorage.removeItem("listItems");
-    }
+    
   }
 
   function deleteItem(id: string) {
@@ -73,6 +72,7 @@ const AddToDo = () => {
         onChange={(e: React.ChangeEvent<HTMLTextAreaElement>) =>
           setInputData(e.target.value)
         }
+        value={inputData}
       />
       <button
         onClick={handleAdd}
