@@ -4,12 +4,13 @@ import Providers from "./components/Providers";
 
 export const metadata: Metadata = {
   title: "To-Do List",
-  description: "A simple to-do list",
-  viewport: {
-    width: "device-width",
-    initialScale: 1,
-    maximumScale: 1,
-  },
+  description: "A simple to-do list"  
+};
+
+export const viewport = {
+  width: "device-width",
+  initialScale: 1,
+  maximumScale: 1,
 };
 
 export default function RootLayout({
