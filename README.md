@@ -1,13 +1,16 @@
-**Josef's To-Do List App**
+# Josef's To-do List App:
 
-**Features:**
+## Features:
 - Greet by name (localStorage)
 - Add/Delete list items
 - interactivity with list items
 - saves items between sessions
 - light/dark mode
+- categories to choose from or add
+- timestamps
 
-**Possible features:**
+## Possible Features:
 - Change name button
-- Title + description per item
-- Time-sensitive items
+
+## Changelog
+4/4/2024 - added categories and ability to create as well as timestampes, colors back to basic until next change

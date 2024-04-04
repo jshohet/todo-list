@@ -7,7 +7,7 @@ import Footer from "./components/Footer";
 export default function Home() {
   return (
     <main className="h-screen">
-      <Header />
+      <Header /> 
       <FirstTime />
       <ToDoWrapper />
       <Footer />

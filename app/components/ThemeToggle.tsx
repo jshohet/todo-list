@@ -2,7 +2,7 @@
 
 import React, { createContext, useContext, useEffect, useState } from "react";
 import { FaMoon } from "@react-icons/all-files/fa/FaMoon";
-import { FaBolt } from "@react-icons/all-files/fa/FaBolt";
+import { FaSun } from "react-icons/fa6";
 import { useTheme } from "next-themes";
 
 const ThemeToggle = () => {
@@ -29,10 +29,10 @@ const ThemeToggle = () => {
   return (
     <div>
       <button onClick={changeTheme}>
-        {theme === "light"? (
+        {theme === "light" ? (
           <FaMoon size={30} />
         ) : (
-          <FaBolt size={30} color="white" />
+          <FaSun size={30} color="white" />
         )}
       </button>
     </div>

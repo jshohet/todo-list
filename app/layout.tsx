@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html
       lang="en"
-      className="bg-gradient-to-br from-cyan-500 to-clue-500 dark"
+      className=""
       style={{ colorScheme: "dark" }}
       >
       <body>
