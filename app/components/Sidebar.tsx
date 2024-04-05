@@ -37,7 +37,7 @@ const Sidebar = () => {
       );
     } else {
       return <li></li>;
-    }6
+    }
   });
 
   return (
