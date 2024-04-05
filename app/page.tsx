@@ -1,15 +1,16 @@
-import Image from "next/image";
 import Header from "./components/Header";
 import FirstTime from "./components/FirstTime";
-import ToDoWrapper from "./components/ToDoWrapper";
 import Footer from "./components/Footer";
+import AddToDo from "./components/AddToDo";
+import Sidebar from "./components/Sidebar";
 
 export default function Home() {
   return (
     <main className="h-screen">
       <Header /> 
       <FirstTime />
-      <ToDoWrapper />
+      <Sidebar />
+      <AddToDo />
       <Footer />
     </main>
   );

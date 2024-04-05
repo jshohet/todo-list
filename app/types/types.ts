@@ -4,7 +4,7 @@ export interface ListItem  {
   isChecked: boolean;
   dateTime: string,
   dateDate: string,
-  category?: options,
+  category: options,
   handleItem?(id:string): void,
   deleteItem?(id:string):void
 };
@@ -14,22 +14,21 @@ export type options = {
   label: string
 }
 
-export const PresetOptions: any[] = [
-  
+export const PresetOptions: options[] = [  
   {
     value: "Add new category",
     label:"Add new category"
   },
   {
-    value: "gym",
+    value: "Gym",
     label: "Gym",
   },
   {
-    value: "grocery",
+    value: "Groceries",
     label: "Groceries",
   },
   {
-    value: "homework",
+    value: "Homework",
     label: "Homework"
   }
 ]
