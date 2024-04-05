@@ -31,7 +31,7 @@ const Sidebar = () => {
   const createCategories = categoryOptions.map((category) => {
     if (category.label !== "Add new category") {
       return (
-        <li key={nanoid()} className="cursor-pointer mb-0.5" onClick={clickCategory}>
+        <li key={nanoid()} className="cursor-pointer mb-0.5 hover:underline" onClick={clickCategory}>
           {category.label}
         </li>
       );
@@ -44,7 +44,7 @@ const Sidebar = () => {
     <div className="md:ml-[3%] lg:ml-[10%] mb-2 flex items-center md:fixed flex-col ">
       <h2 className="mb-1 text-xl">Category filter:</h2>
       <ul className="dark:bg-[#2B2B36] bg-gray-500 text-zinc-100 text-lg px-2 py-1 rounded-md">
-        <li onClick={clearCategory} className="mb-1">
+        <li onClick={clearCategory} className="mb-1 hover:underline cursor-pointer">
           Clear filter
         </li>
         {createCategories}
