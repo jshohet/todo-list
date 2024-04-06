@@ -36,15 +36,22 @@ const Sidebar = () => {
         </li>
       );
     } else {
-      return <li></li>;
+      return <li key={nanoid()}></li>;
     }
   });
 
   return (
-    <div className="md:ml-[3%] lg:ml-[10%] mb-2 flex items-center md:fixed flex-col ">
-      <h2 className="mb-1 text-xl">Category filter:</h2>
-      <ul className="dark:bg-[#2B2B36] bg-gray-500 text-zinc-100 text-lg px-2 py-1 rounded-md">
-        <li onClick={clearCategory} className="mb-1 hover:underline cursor-pointer">
+    <div className="md:ml-[3%] lg:ml-[10%] bg-[#212121] mb-2 flex items-center md:fixed flex-col rounded-md">
+      <ul className="bg-smokepaint bg-cover bg-no-repeat text-black font-bold text-lg px-2 py-1 rounded-md">
+        <li>
+          <h2 className="mb-1 text-xl underline underline-offset-8 ">
+            Category filter:
+          </h2>
+        </li>
+        <li
+          onClick={clearCategory}
+          key={nanoid()}
+          className="mb-1 hover:underline cursor-pointer">
           Clear filter
         </li>
         {createCategories}

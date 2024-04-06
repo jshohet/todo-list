@@ -12,6 +12,7 @@ const ReactSelect = dynamic(() => import("react-select"), {
 });
 import { ToastContainer, toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import { FaPlusSquare } from "react-icons/fa";
 
 const AddToDo = () => {
   //use redux store
@@ -72,7 +73,11 @@ const AddToDo = () => {
     if (inputData === "") {
       toast.warn("Please enter a to-do item!");
       return;
-    } else {
+    }
+    if(selectedDropdown.value === ""){
+      toast.warn("Please select a cateogry!");
+      return;
+    }
       dispatch(
         setItemData([
           ...itemData,
@@ -98,7 +103,7 @@ const AddToDo = () => {
         },
       ]);
       toast.success("Item added!", { toastId: nanoid() });
-    }
+    
     setInputData("");
   };
 
@@ -171,11 +176,12 @@ const AddToDo = () => {
     if (localStorage.getItem("listItems")) {
       const localItems = localStorage.getItem("listItems") as string;
       dispatch(setItemData(JSON.parse(localItems) || []));
+      setFilteredData(JSON.parse(localItems) || []);
     }
   }, []);
 
   return (
-    <div className="flex items-center flex-col mt-2">
+    <div className="flex items-center flex-col mt-2 ">
       <ToastContainer
         limit={2}
         autoClose={2000}
@@ -183,22 +189,24 @@ const AddToDo = () => {
         theme="dark"
         position="bottom-right"
       />
-      <form className="flex items-center flex-col">
-        <label htmlFor="react select" className="text-2xl mb-0.5">
-          Category:
+      <form className="flex items-center flex-col  py-2 px-4 rounded-md mb-2">
+        <label
+          htmlFor="react select"
+          className="text-2xl text-zinc-200 dark:text-zinc-200 font-semibold mb-0.5">
+          Select a category:
         </label>
         <ReactSelect
           name="react select"
-          className="dark:text-black mb-2 md:mb-6 font-bold w-full px-2 text-xl"
+          className="dark:text-slate-800 mb-2 md:mb-6 font-bold w-full px-2 text-xl"
           isSearchable={true}
           options={categoryOptions}
           value={selectedDropdown}
           onChange={handleDropDownChange}
         />
         {addCategory && (
-          <div className="mx-2 ">
+          <div className="mx-2 mb-2 flex justify-center items-center">
             <input
-              className="bg-slate-200 dark:bg-slate-800 border-solid w-[70%] sm:text-2xl xs:text-lg border-2 p-2 mb-2 rounded-md placeholder:text-center focus:border-sky-300 dark:border-slate-400"
+              className="dark:bg-[#2B2B36] text-[#D5D7D7] bg-slate-800 border-solid w-[70%] sm:text-2xl xs:text-lg border-2 p-2 mb-2 rounded-md placeholder:text-center focus:border-sky-300 dark:border-slate-400"
               defaultValue={"Name your category"}
               name="category"
               autoComplete="on"
@@ -207,14 +215,14 @@ const AddToDo = () => {
                 setCategory(e.target.value);
               }}></input>
             <button
-              className="ml-2 w-[25%] border-2 text-2xl my-6 rounded-lg px-2 py-2 border-slate-500 hover:border-slate-700 hover:bg-green-700  dark:bg-zinc-200 dark:text-black dark:hover:bg-emerald-400"
+              className=" ml-4 rounded-lg hover:text-green-700 mb-2.5 hover:bg-slate-900 dark:hover:text-emerald-400"
               onClick={categoryAdd}>
-              Add
+              <FaPlusSquare className="" size={40} />
             </button>
           </div>
         )}
         <textarea
-          className="bg-slate-200 dark:bg-slate-800 resize-none border-solid sm:text-2xl xs:text-lg border-2 p-2 rounded-lg w-max placeholder:text-center focus:border-sky-300 dark:border-slate-400"
+          className="dark:bg-[#2B2B36] text-[#D5D7D7] bg-slate-800 resize-none border-solid sm:text-2xl xs:text-lg border-2 p-2 rounded-lg w-max placeholder:text-center focus:border-sky-300 dark:border-slate-400"
           placeholder="New to-do item"
           id="name"
           name="todo"
@@ -227,13 +235,14 @@ const AddToDo = () => {
           disabled={addCategory}
           onClick={handleAdd}
           className={`${
-            addCategory || inputData === ""
-              ? "border-0 cursor-not-allowed bg-zinc-200 dark:text-slate-800"
+            addCategory || inputData === "" || selectedDropdown.value === ""
+              ? "border-0 cursor-not-allowed  dark:text-slate-800"
               : "border-slate-500 hover:border-slate-700 hover:bg-green-700  dark:bg-zinc-200 dark:text-black dark:hover:bg-emerald-400"
-          } border-2 text-2xl my-6 rounded-lg px-4 py-2`}>
+          } border-2 text-2xl bg-zinc-200 my-6 rounded-lg px-4 py-2 font-bold`}>
           Add Item
         </button>
       </form>
+      {clickedCategory.value && <h2 className="font-semibold text-xl mb-2">Filtered to {clickedCategory.value}</h2>}
       {createList}
     </div>
   );
