@@ -42,7 +42,7 @@ const Sidebar = () => {
 
   return (
     <div className="md:ml-[3%] lg:ml-[10%] mb-2 flex items-center md:fixed flex-col rounded-md">
-      <ul className="bg-smokepaint bg-cover bg-no-repeat text-black font-bold text-lg px-2 py-1 rounded-md">
+      <ul className=" text-zinc-100 text-lg px-2 py-1 rounded-md">
         <li>
           <h2 className="mb-1 text-xl underline underline-offset-8 ">
             Category filter:
