@@ -38,7 +38,7 @@ const FirstTime = () => {
     <div className="my-2 flex justify-center ">
       {show ? (
         <div className="text-center mt-10  py-2 px-4 rounded-md mb-2 w-fit">
-          <h1 className="lg:text-4xl md:text-5xl xs:text-2xl sm:text-2xl font-semibold mb-3 text-zinc-200 dark:text-zinc-200 md:mx-1">
+          <h1 className="lg:text-4xl md:text-5xl xs:text-2xl sm:text-2xl font-semibold mb-3 text-slate-800  md:mx-1">
             Please enter your name:
           </h1>
           <form>
@@ -60,7 +60,7 @@ const FirstTime = () => {
         </div>
       ) : (
         <div className="text-center mt-10">
-          <h1 className=" lg:text-4xl md:text-4xl xs:text-2xl sm:text-2xl font-semibold mb-10 text-zinc-200 dark:text-zinc-200 md:mx-1">
+          <h1 className=" lg:text-4xl md:text-4xl xs:text-2xl sm:text-2xl font-semibold mb-10 text-slate-800  md:mx-1">
             Hello,{" "}
             <span className="font-bold text-green-600 dark:text-purple-800">
               {formData.name}

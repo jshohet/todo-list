@@ -21,7 +21,7 @@ export default function RootLayout({
   return (
     <html lang="en" className="" style={{ colorScheme: "dark" }}>
       <body className="bg-lightpaint bg-cover bg-no-repeat">
-        <div className="bg-[#3a3939] mix-blend-hard-light min-h-screen h-full">
+        <div className="min-h-screen h-full">
           <Providers>{children}</Providers>
         </div>
       </body>

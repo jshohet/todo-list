@@ -190,11 +190,13 @@ const AddToDo = () => {
         position="bottom-right"
       />
       <form className="flex items-center flex-col  py-2 px-4 rounded-md mb-2">
-        <label
-          htmlFor="react select"
-          className="text-2xl text-zinc-200 dark:text-zinc-200 font-semibold mb-0.5">
-          Select a category:
-        </label>
+        <div className="">
+          <label
+            htmlFor="react select"
+            className="text-2xl text-white/90 font-bold mb-0.5">
+            Select a category:
+          </label>
+        </div>
         <ReactSelect
           name="react select"
           className="dark:text-slate-800 mb-2 md:mb-6 font-bold w-full px-2 text-xl"
@@ -242,7 +244,11 @@ const AddToDo = () => {
           Add Item
         </button>
       </form>
-      {clickedCategory.value && <h2 className="font-semibold text-xl mb-2">Filtered to {clickedCategory.value}</h2>}
+      {clickedCategory.value && (
+        <h2 className="font-semibold text-slate-800  text-xl mb-2">
+          Filtered to {clickedCategory.value}
+        </h2>
+      )}
       {createList}
     </div>
   );
